@@ -23,6 +23,13 @@ public class VendorServlet extends HttpServlet {
     @Inject
     private TypeVendorServiceImpl typeVendorService;
 
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter out = resp.getWriter();
+        out.println(vendorService.findAll());
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long id = Long.valueOf(req.getParameter("id_type"));
