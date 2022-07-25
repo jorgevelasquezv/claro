@@ -9,5 +9,72 @@
 </h:head>
 <h:body>
     <h1>Claro Shop</h1>
+
+    <h:form>
+        <h:commandButton value="Create Vendor" action="form.xhtml" />
+    </h:form>
+
+    <h:dataTable value="#{vendors}" var="v">
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Id"/>
+            </f:facet>
+            <h:outputText value="#{v.id}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Name"/>
+            </f:facet>
+            <h:outputText value="#{v.name}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="City"/>
+            </f:facet>
+            <h:outputText value="#{v.city}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Code"/>
+            </f:facet>
+            <h:outputText value="#{v.code}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Dni"/>
+            </f:facet>
+            <h:outputText value="#{v.dni}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Type"/>
+            </f:facet>
+            <h:outputText value="#{v.typeVendor.type}"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Edit"/>
+            </f:facet>
+            <h:form>
+                <h:commandLink value="Edit" action="#{vendorController.edit(v.id)}" />
+            </h:form>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Delete"/>
+            </f:facet>
+            <h:form>
+                <h:commandLink value="Delete" action="#{vendorController.delete(v.id)}" onclick="return confirm('Are you sure you want to delete?')"/>
+            </h:form>
+        </h:column>
+    </h:dataTable>
 </h:body>
 </html>

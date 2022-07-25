@@ -4,6 +4,8 @@ package co.com.claro.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Objects;
+
 @Entity
 @Builder
 @AllArgsConstructor
@@ -19,6 +21,16 @@ public class TypeVendor {
 
     @Column(nullable = false)
     private String type;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TypeVendor typeVendor = (TypeVendor) o;
+
+        return Objects.equals(id, typeVendor.id);
+    }
 
     @Override
     public String toString() {

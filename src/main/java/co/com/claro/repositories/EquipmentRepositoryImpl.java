@@ -1,24 +1,20 @@
-package co.com.claro.services;
+package co.com.claro.repositories;
 
-import co.com.claro.entity.Client;
 import co.com.claro.entity.Equipment;
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
-import jakarta.transaction.Transactional;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
-@ApplicationScoped
-@Transactional
-public class EquipmentServiceImpl implements Service<Equipment> {
+@RequestScoped
+public class EquipmentRepositoryImpl implements CrudRepository<Equipment> {
 
-    @PersistenceContext(name = "claro")
+    @Inject
     private EntityManager em;
 
     @Override

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta charset="UTF-8"/>
+    <title>Claro Shop</title>
+</h:head>
+<h:body>
+    <h1>Vendor Form</h1>
+    <h3>#{vendor.id > 0 ? 'Edit' : 'Save'} Vendor</h3>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Name" for="name" />
+            <h:inputText id="name" value="#{vendor.name}" required="true" label="Name" />
+
+            <h:outputLabel value="DNI" for="dni" />
+            <h:inputText id="dni" value="#{vendor.dni}" required="true" label="DNI" />
+
+            <h:outputLabel value="Code" for="code" />
+            <h:inputText id="code" value="#{vendor.code}" required="true" label="Code" />
+
+            <h:outputLabel value="City" for="city" />
+            <h:inputText id="city" value="#{vendor.city}" required="true" label="City" />
+
+            <h:outputLabel value="Type" for="type" />
+            <h:selectOneMenu id="type" value="#{vendor.typeVendor}" required="true" label="Type" >
+                <f:selectItem itemLabel="--- Select to type ---" itemValue="#{null}"/>
+                <f:selectItems value="#{typeVendors}" var="type"
+                               itemLabel="#{type.type}" />
+                <f:converter binding="#{typeVendorConverter}" />
+            </h:selectOneMenu>
+
+            <br/>
+
+            <h:commandButton value="#{vendor.id > 0 ? 'Edit' : 'Save'}" action="#{vendorController.save}" />
+
+            <h:inputHidden value="#{vendor.id}" />
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>

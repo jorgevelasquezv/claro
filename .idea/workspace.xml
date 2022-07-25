@@ -4,12 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea29fb2d-75d1-48f4-bdad-75eb47955c5e" name="Changes" comment="Creando servlets con salida JSON">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+    <list default="true" id="ea29fb2d-75d1-48f4-bdad-75eb47955c5e" name="Changes" comment="Programa funcional antes de crear package repositories">
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/VendorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/converters/TypeVendorConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/producers/ProducerEntityManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/repositories/TypeVendorRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/repositories/VendorRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/services/TypeVendorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/services/VendorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/form.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/VendorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/VendorServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/ClientServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/servlets/ClientServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/CreateEquipmentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/servlets/CreateEquipmentServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/EquipmentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/servlets/EquipmentServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/FindSaleServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/servlets/FindSaleServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/SaleServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/servlets/SaleServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/TypeVendorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/servlets/TypeVendorServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/VendorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/controllers/servlets/VendorServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/entity/TypeVendor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/entity/TypeVendor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/services/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/repositories/ClientRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/services/EquipmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/repositories/EquipmentRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/services/SaleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/repositories/SaleRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/services/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/repositories/CrudRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/services/TypeVendorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/services/TypeVendorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/claro/services/VendorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/claro/services/VendorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,10 +38,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -53,8 +72,12 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Diplomado_Java\claro\src\main\webapp" />
       <recent name="C:\Diplomado_Java\claro\src\main\resources\WEB-INF" />
       <recent name="C:\Users\georg\Downloads\1_webapp-session[weld_cdi]\claro\src\main\resources\META-INF" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="co.com.claro.services" />
     </key>
   </component>
   <component name="RunManager" selected="Maven.claro - deploy">
@@ -137,7 +160,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658273592489</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Programa funcional antes de crear package repositories">
+      <created>1658715574860</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658715574860</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Programa funcional antes de crear package repositories">
+      <created>1658715658284</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658715658284</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -153,7 +190,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creando servlets con salida JSON" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creando servlets con salida JSON" />
+    <MESSAGE value="Programa funcional antes de crear package repositories" />
+    <option name="LAST_COMMIT_MESSAGE" value="Programa funcional antes de crear package repositories" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

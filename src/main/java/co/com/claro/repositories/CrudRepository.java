@@ -1,8 +1,8 @@
-package co.com.claro.services;
+package co.com.claro.repositories;
 
 import java.util.List;
 
-public interface Service<T> {
+public interface CrudRepository<T> {
 
     T save (T t);
 
