@@ -1,6 +1,8 @@
 package co.com.claro.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
@@ -16,17 +18,20 @@ public class Vendor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty
     @Column(nullable = false)
     private String name;
-
+    @NotEmpty
     @Column(nullable = false)
     private String dni;
 
+    @NotEmpty
     @Column(nullable = false)
     private String code;
 
     private String city;
 
+    @NotNull
     @OneToOne
     private TypeVendor typeVendor;
 

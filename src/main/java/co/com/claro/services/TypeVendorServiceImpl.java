@@ -1,5 +1,6 @@
 package co.com.claro.services;
 
+import co.com.claro.configs.TypeVendorServicesQualifier;
 import co.com.claro.entity.TypeVendor;
 import co.com.claro.repositories.CrudRepository;
 import jakarta.ejb.Stateless;
@@ -9,7 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Stateless
-public class TypeVendorServiceImpl implements TypeVendorService{
+@TypeVendorServicesQualifier
+public class TypeVendorServiceImpl implements Service<TypeVendor>{
 
     @Inject
     private CrudRepository<TypeVendor> repository;

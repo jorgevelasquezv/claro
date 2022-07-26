@@ -1,7 +1,8 @@
 package co.com.claro.converters;
 
+import co.com.claro.configs.TypeVendorServicesQualifier;
 import co.com.claro.entity.TypeVendor;
-import co.com.claro.services.TypeVendorService;
+import co.com.claro.services.Service;
 import jakarta.enterprise.inject.Model;
 import jakarta.faces.component.UIComponent;
 import jakarta.faces.context.FacesContext;
@@ -14,7 +15,8 @@ import java.util.Optional;
 public class TypeVendorConverter implements Converter<TypeVendor> {
 
     @Inject
-    private TypeVendorService service;
+    @TypeVendorServicesQualifier
+    private Service<TypeVendor> service;
 
     @Override
     public TypeVendor getAsObject(FacesContext context, UIComponent component, String id) {

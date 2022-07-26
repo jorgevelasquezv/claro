@@ -1,9 +1,10 @@
 package co.com.claro.controllers;
 
+import co.com.claro.configs.TypeVendorServicesQualifier;
+import co.com.claro.configs.VendorServicesQualifier;
 import co.com.claro.entity.TypeVendor;
 import co.com.claro.entity.Vendor;
-import co.com.claro.services.TypeVendorService;
-import co.com.claro.services.VendorService;
+import co.com.claro.services.Service;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.inject.Model;
 import jakarta.enterprise.inject.Produces;
@@ -22,16 +23,18 @@ public class VendorController {
     private Long id;
 
     @Inject
-    private VendorService service;
+    @VendorServicesQualifier
+    private Service<Vendor> vendorService;
 
     @Inject
-    private TypeVendorService typeVendorService;
+    @TypeVendorServicesQualifier
+    private Service<TypeVendor> typeVendorService;
 
     @Produces
     @RequestScoped
     @Named("vendors")
     public List<Vendor> findAll(){
-        return service.findAll();
+        return vendorService.findAll();
     }
 
     @Produces
@@ -43,7 +46,7 @@ public class VendorController {
 
         if (id != null && id > 0 ){
             vendor.setId(id);
-            service.find(vendor).ifPresent(v -> {
+            vendorService.find(vendor).ifPresent(v -> {
                 this.vendor = v;
             });
         }
@@ -58,8 +61,7 @@ public class VendorController {
     }
 
     public String save(){
-        System.out.println(vendor.getTypeVendor());
-        service.save(vendor);
+        vendorService.save(vendor);
         return "index.xhtml?faces-redirect=true";
     }
 
@@ -69,7 +71,7 @@ public class VendorController {
     }
 
     public String delete(Long id){
-        service.delete(service.find(Vendor.builder().id(id).build()).get());
+        vendorService.delete(vendorService.find(Vendor.builder().id(id).build()).get());
         return "index.xhtml?faces-redirect=true";
     }
 }
