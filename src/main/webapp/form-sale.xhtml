@@ -1,0 +1,78 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/layouts/layout.xhtml">
+
+    <ui:define name="content">
+
+        <h1>Sale Form</h1>
+
+        <p:panel header="#{sale.id > 0 ? 'Edit' : 'Save'} Sale">
+            <p:linkButton outcome="index" value="Back" class="p-my-2"/>
+            <h:form class="p-my-2">
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="Client" for="client" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:inputText id="client" value="#{saleController.client.name}" required="true" label="Client Name"/>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="client" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="DNI Client" for="client_dni" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:inputText id="client_dni" value="#{saleController.client.dni}" required="true" label="Client DNI"/>
+                    </div>
+                    <div class="p-col">
+                       <p:message for="client_dni" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="Equipment" for="equipment" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:selectOneMenu id="equipment" value="#{sale.equipment}" label="Type">
+                            <f:selectItem itemLabel="--- Select to equipment ---" itemValue="#{null}"/>
+                            <f:selectItems value="#{equipments}" var="e"
+                                           itemLabel="#{e.name}"/>
+                            <f:converter binding="#{equipmentConverter}"/>
+                        </p:selectOneMenu>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="equipment" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="Vendor" for="vendor" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:selectOneMenu id="vendor" value="#{sale.vendor}" label="Type">
+                            <f:selectItem itemLabel="--- Select to vendor ---" itemValue="#{null}"/>
+                            <f:selectItems value="#{vendors}" var="v"
+                                           itemLabel="#{v.name}"/>
+                            <f:converter binding="#{vendorConverter}"/>
+                        </p:selectOneMenu>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="vendor" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <div class="p-col">
+                        <p:commandButton value="#{sale.id > 0 ? 'Edit' : 'Save'}" action="#{saleController.save(sale.id)}"
+                                         class="ui-button-primary p-my-2" update="@form" />
+                    </div>
+                    <h:inputHidden value="#{sale.id}"/>
+                    <h:inputHidden value="#{saleController.client.id}"/>
+                </div>
+
+            </h:form>
+        </p:panel>
+    </ui:define>
+</ui:composition>

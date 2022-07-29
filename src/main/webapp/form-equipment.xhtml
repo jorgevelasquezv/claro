@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/layouts/layout.xhtml">
+
+    <ui:define name="content">
+
+        <h1>Equipment Form</h1>
+
+        <p:panel header="#{equipment.id > 0 ? 'Edit' : 'Save'} Equipment">
+            <p:linkButton outcome="index" value="Back" class="p-my-2"/>
+            <h:form class="p-my-2">
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="Name" for="name" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:inputText id="name" value="#{equipment.name}" required="true" label="Name"/>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="name" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="Brand" for="brand" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:inputText id="brand" value="#{equipment.brand}" label="Brand"/>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="brand" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="Price" for="price" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:inputText id="price" value="#{equipment.price}" label="Price"/>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="price" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="Quantity" for="quantity" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:inputText id="quantity" value="#{equipment.quantity}" label="Quantity"/>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="quantity" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <div class="p-col">
+                        <p:commandButton value="#{equipment.id > 0 ? 'Edit' : 'Save'}" action="#{equipmentController.save}"
+                                         class="ui-button-primary p-my-2" update="@form"/>
+                    </div>
+                    <h:inputHidden value="#{equipment.id}"/>
+                </div>
+
+            </h:form>
+        </p:panel>
+    </ui:define>
+</ui:composition>

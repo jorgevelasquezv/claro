@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/layouts/layout.xhtml">
+
+    <ui:define name="content">
+
+        <h1>Client Form</h1>
+
+        <p:panel header="#{client.id > 0 ? 'Edit' : 'Save'} Client">
+            <p:linkButton outcome="index" value="Back" class="p-my-2"/>
+            <h:form class="p-my-2">
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="Name" for="name" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:inputText id="name" value="#{client.name}" required="true" label="Name"/>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="name" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="DNI" for="dni" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:inputText id="dni" value="#{client.dni}" label="DNI"/>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="dni" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <div class="p-col">
+                        <p:commandButton value="#{client.id > 0 ? 'Edit' : 'Save'}" action="#{clientController.save}"
+                                         class="ui-button-primary p-my-2" update="@form"/>
+                    </div>
+                    <h:inputHidden value="#{client.id}"/>
+                </div>
+
+            </h:form>
+        </p:panel>
+    </ui:define>
+</ui:composition>

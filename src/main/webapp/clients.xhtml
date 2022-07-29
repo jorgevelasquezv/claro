@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/layouts/layout.xhtml">
+
+    <ui:define name="content">
+
+        <h1>Claro Shop</h1>
+
+        <p:card>
+            <f:facet name="title">
+                <h:outputText value="List Clients"/>
+            </f:facet>
+            <p:divider/>
+            <h:form>
+                <p:commandButton value="Create client" action="form-client.xhtml" class="p-my-2"/>
+            </h:form>
+
+            <p:dataTable value="#{clientController.clients}" var="c" style="max-width:65%;" id="table">
+
+                <p:column headerText="Id">
+                    <h:outputText value="#{c.id}"/>
+                </p:column>
+
+                <p:column headerText="Name">
+                    <h:outputText value="#{c.name}"/>
+                </p:column>
+
+                <p:column headerText="DNI">
+                    <h:outputText value="#{c.dni}"/>
+                </p:column>
+
+                <p:column headerText="Edit">
+                    <h:form>
+                        <p:commandButton value="Edit" action="#{clientController.edit(c.id)}"
+                                         class="ui-button-success"/>
+                    </h:form>
+                </p:column>
+
+                <p:column headerText="Delete">
+                    <h:form>
+                        <p:commandButton value="Delete" action="#{clientController.delete(c.id)}"
+                                         onclick="return confirm('Are you sure you want to delete?')"
+                                         class="ui-button-danger" update="table"/>
+                    </h:form>
+                </p:column>
+            </p:dataTable>
+        </p:card>
+    </ui:define>
+</ui:composition>

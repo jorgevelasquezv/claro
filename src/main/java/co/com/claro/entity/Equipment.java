@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Entity
 @Builder
@@ -28,6 +29,16 @@ public class Equipment {
 
     @Column(nullable = false)
     private Long quantity;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Equipment equipment = (Equipment) o;
+
+        return Objects.equals(id, equipment.id);
+    }
 
     @Override
     public String toString() {

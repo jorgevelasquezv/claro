@@ -1,0 +1,82 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/layouts/layout.xhtml">
+
+    <ui:define name="content">
+
+        <h1>Vendor Form</h1>
+
+        <p:panel header="#{vendor.id > 0 ? 'Edit' : 'Save'} Vendor">
+            <p:linkButton outcome="index" value="Back" class="p-my-2"/>
+            <h:form class="p-my-2">
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="Name" for="name" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:inputText id="name" value="#{vendor.name}" required="true" label="Name"/>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="name" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="DNI" for="dni" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:inputText id="dni" value="#{vendor.dni}" label="DNI"/>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="dni" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="Code" for="code" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:inputText id="code" value="#{vendor.code}" label="Code"/>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="code" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="City" for="city" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:inputText id="city" value="#{vendor.city}" label="City"/>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="city" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <p:outputLabel value="Type" for="type" class="p-col-fixed" style="width:200px;"/>
+                    <div class="p-col">
+                        <p:selectOneMenu id="type" value="#{vendor.typeVendor}" label="Type">
+                            <f:selectItem itemLabel="--- Select to type ---" itemValue="#{null}"/>
+                            <f:selectItems value="#{typeVendors}" var="type"
+                                           itemLabel="#{type.type}"/>
+                            <f:converter binding="#{typeVendorConverter}"/>
+                        </p:selectOneMenu>
+                    </div>
+                    <div class="p-col">
+                        <p:message for="type" style="color:red;"/>
+                    </div>
+                </div>
+
+                <div class="p-field p-grid">
+                    <div class="p-col">
+                        <p:commandButton value="#{vendor.id > 0 ? 'Edit' : 'Save'}" action="#{vendorController.save}"
+                                         class="ui-button-primary p-my-2" update="@form"/>
+                    </div>
+                    <h:inputHidden value="#{vendor.id}"/>
+                </div>
+
+            </h:form>
+        </p:panel>
+    </ui:define>
+</ui:composition>

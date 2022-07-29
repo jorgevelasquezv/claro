@@ -3,6 +3,8 @@ package co.com.claro.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Objects;
+
 @Entity
 @Builder
 @AllArgsConstructor
@@ -23,6 +25,16 @@ public class Sale {
 
     @ManyToOne
     private Vendor vendor;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Sale sale = (Sale) o;
+
+        return Objects.equals(id, sale.id);
+    }
 
     @Override
     public String toString() {

@@ -3,6 +3,8 @@ package co.com.claro.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Objects;
+
 @Entity
 @Builder
 @AllArgsConstructor
@@ -20,6 +22,16 @@ public class Client {
 
     @Column(nullable = false)
     private Long dni;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Client client = (Client) o;
+
+        return Objects.equals(id, client.id);
+    }
 
     @Override
     public String toString() {

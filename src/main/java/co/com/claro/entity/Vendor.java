@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.util.Objects;
+
 @Entity
 @Builder
 @AllArgsConstructor
@@ -34,6 +36,16 @@ public class Vendor {
     @NotNull
     @OneToOne
     private TypeVendor typeVendor;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Vendor vendor = (Vendor) o;
+
+        return Objects.equals(id, vendor.id);
+    }
 
     @Override
     public String toString() {
